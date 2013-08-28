@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.blackboard.com/module" xsi:schemaLocation="http://www.blackboard.com/module module.xsd"
+        namespace="com.blackboard.developer.apisample">
+
+  <!-- B2ApiSample extension point-->
+  <extension-point id=b2ApiSample type="com.blackboard.developer.apisample.api.B2ApiSample" />

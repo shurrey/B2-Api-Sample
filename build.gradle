@@ -5,7 +5,7 @@ apply plugin: "eclipse"
 apply plugin: "idea"
 
 // Uncomment if your project has an API JAR
-//apply from: "api.gradle"
+apply from: "api.gradle"
 
 // define the version for the project when publishing to maven
 group "edu.monument"
@@ -13,8 +13,8 @@ version "1.0-SNAPSHOT"
 
 ext {
   learnVersion = "9.1.120113.0"
-  deployServer = "localhost:8000"
-  deployInstance = "BBLEARN"
+  deployServer = "b2showcase.blackboard.com"
+  deployInstance = "bb_bb60"
 }
 
 repositories {
@@ -35,8 +35,8 @@ dependencies {
 
   // Dependencies are libraries needed to build, but should not be included in the B2 WAR.
   // You should NEVER include Learn JARs (other than webapis) in your B2.
-  // providedCompile( "blackboard.platform:bb-platform:$ext.learnVersion" ) { transitive = false }
-  // providedCompile( "blackboard.platform:bb-taglibs:$ext.learnVersion" ) { transitive = false }
+  providedCompile( "blackboard.platform:bb-platform:$ext.learnVersion" ) { transitive = false }
+  providedCompile( "blackboard.platform:bb-taglibs:$ext.learnVersion" ) { transitive = false }
 
   // Building a Spring B2?  Use our Spring APIs!
   // compile "blackboard.platform:bb-spring-webapi:10.1"
