@@ -1,22 +1,4 @@
-basic-b2-template
-=================
+B2-Api-Sample
+=============
 
-This project provides the framework for starting a new Building Block (B2) project for Blackboard Learn.  Fork this project and make changes as necessary for your project.
-
-How To Use This Project
-====
-
-Clone this repository into a directory: 
-`git clone https://github.com/blackboard/basic-b2-template.git -o template <project name>`
-
-Note that the clone command has assigned the `template` remote identifier to keep it separated from your real origin remote.
-
-Next, add an origin remote for your own git repository: 
-`git remote add origin <URL to your git repo>`
-
-Add your code and push to your origin remote: 
-`git push origin`
-
-Deploying Your B2
-===
-To deploy your B2 for testing, run `gradlew deployB2`.
+This is a sample Building Block exposing an API for consumption by other Building Blocks. The API will allow a B2 to submit a userId and retrieve that user's class list, or submit a course Id and retrieve the course roster.
