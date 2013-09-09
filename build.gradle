@@ -37,7 +37,8 @@ dependencies {
   // You should NEVER include Learn JARs (other than webapis) in your B2.
   providedCompile( "blackboard.platform:bb-platform:$ext.learnVersion" ) { transitive = false }
   providedCompile( "blackboard.platform:bb-taglibs:$ext.learnVersion" ) { transitive = false }
-
+  apiCompile( "blackboard.platform:bb-platform:$ext.learnVersion" ) { transitive = false }
+  apiCompile( "blackboard.platform:bb-taglibs:$ext.learnVersion" ) { transitive = false }
   // Building a Spring B2?  Use our Spring APIs!
   // compile "blackboard.platform:bb-spring-webapi:10.1"
 
