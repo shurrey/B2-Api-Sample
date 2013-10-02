@@ -2,7 +2,8 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
-<%@ page import="com.blackboard.developer.apisample.impl.B2ApiSampleImpl,
+<%@ page import="com.blackboard.developer.apisample.api.B2ApiSample,
+				 com.blackboard.developer.apisample.impl.B2ApiSampleImpl,
 				 blackboard.platform.context.*,
 				 blackboard.data.course.*,
 				 blackboard.data.user.*,
@@ -20,7 +21,7 @@
 	
 	<%
 		Context ctx = ContextManagerFactory.getInstance().getContext();
-		B2ApiSampleImpl apiSample = new B2ApiSampleImpl();
+		B2ApiSample apiSample = new B2ApiSampleImpl();
 		Course course = ctx.getCourse();
 		
 		%>

@@ -5,7 +5,7 @@
   <plugin>
 
     <name value="b2.name" />
-    <handle value="B2ApiSample" />
+    <handle value="bbdn-b2-api-provider" />
     <description value="b2.description" />
     <default-locale value="en_US" />
     <webapp-type value="javaext" />
@@ -17,9 +17,9 @@
 
     <vendor>
       <id value="bbdn" />
-      <name value="Blackboard Developer Network" />
+      <name value="Blackboard Developers Network" />
       <url value="http://developer.blackboard.com" />
-      <description value="Home of the Blackboard Developer Network" />
+      <description value="Blackboard Developer Network" />
     </vendor>
 
 
@@ -70,8 +70,8 @@
 
     <!-- Code permissions required for proper operation -->
     <application-defs>
-    	<application handle="B2ApiSample" name="B2ApiSample" type="system">
-    		<description>A sample Building Block describing how to expose an API at the B2 framework level</description>
+    	<application handle="bbdn-b2-api-consumer" name="B2 API Consumer" type="course">
+    		<description>A b2 that exposes and API. These applications consume those APIs internally.</description>
 			<links>
           		<link>
             		<type value="user_tool"/>

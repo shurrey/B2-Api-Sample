@@ -14,7 +14,7 @@ import blackboard.persist.user.UserDbLoader;
 import com.blackboard.developer.apisample.*;
 import com.blackboard.developer.apisample.api.*;
 
-public class B2ApiSampleImpl implements B2ApiSampleEx, B2ApiSample {
+public class B2ApiSampleImpl implements B2ApiSample {
 
 	@SuppressWarnings("null")
 	@Override
