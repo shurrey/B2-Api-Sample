@@ -20,14 +20,20 @@
 	</bbNG:pageHeader>
 	
 	<%
+	try {
+		%>Get Context...<% 
 		Context ctx = ContextManagerFactory.getInstance().getContext();
+		%>Get B2ApiSample...<%
 		B2ApiSample apiSample = new B2ApiSampleImpl();
+		%>Get User From Context...<%
 		User user = ctx.getUser();
 		
 		%>
 		<h2>Course List for User <%=user.getGivenName()%> <%=user.getFamilyName() %></h2><br />
 		<%
+		%>Get Course List...<%
 		List<Course> courseListing = apiSample.getCourseListForUser(ctx.getUserId());
+		%>Get Course List Iterator...<%
 		ListIterator<Course> courseIt = courseListing.listIterator();
 		
 		while(courseIt.hasNext()) {
@@ -38,5 +44,8 @@
 			<%=displayCourse%><br />
 			<%
 		}
+	} catch(Exception e) {
+		%><%=e.getMessage() %><%
+	}
 	%>
 </bbNG:genericPage>

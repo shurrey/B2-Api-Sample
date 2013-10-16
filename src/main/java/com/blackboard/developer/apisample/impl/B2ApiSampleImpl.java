@@ -11,7 +11,6 @@ import blackboard.persist.PersistenceException;
 import blackboard.persist.course.CourseDbLoader;
 import blackboard.persist.course.CourseMembershipDbLoader;
 import blackboard.persist.user.UserDbLoader;
-import com.blackboard.developer.apisample.*;
 import com.blackboard.developer.apisample.api.*;
 
 public class B2ApiSampleImpl implements B2ApiSample {

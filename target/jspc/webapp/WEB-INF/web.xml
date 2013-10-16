@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5"
+         xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+  <display-name>B2</display-name>
+
+<!-- JSPC servlet mappings start -->
+
+    <servlet>
+        <servlet-name>blackboard.web.getClassRoster_jsp</servlet-name>
+        <servlet-class>blackboard.web.getClassRoster_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>blackboard.web.getCourseList_jsp</servlet-name>
+        <servlet-class>blackboard.web.getCourseList_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>blackboard.web.WEB_002dINF.getClassRoster_jsp</servlet-name>
+        <servlet-class>blackboard.web.WEB_002dINF.getClassRoster_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>blackboard.web.WEB_002dINF.getCourseList_jsp</servlet-name>
+        <servlet-class>blackboard.web.WEB_002dINF.getCourseList_jsp</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>blackboard.web.getClassRoster_jsp</servlet-name>
+        <url-pattern>/getClassRoster.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>blackboard.web.getCourseList_jsp</servlet-name>
+        <url-pattern>/getCourseList.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>blackboard.web.WEB_002dINF.getClassRoster_jsp</servlet-name>
+        <url-pattern>/WEB-INF/getClassRoster.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>blackboard.web.WEB_002dINF.getCourseList_jsp</servlet-name>
+        <url-pattern>/WEB-INF/getCourseList.jsp</url-pattern>
+    </servlet-mapping>
+
+<!-- JSPC servlet mappings end -->
+
+</web-app>

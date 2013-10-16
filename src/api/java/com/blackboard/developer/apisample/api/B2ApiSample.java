@@ -18,16 +18,16 @@ import blackboard.platform.extension.util.ExtensionIFactory;
 
 public interface B2ApiSample {
 	
-	String EXTENSION_POINT_MODULE = "com.blackboard.devloper.apisample";
+	String EXTENSION_POINT_MODULE = "com.blackboard.developer.apisample.api";
 	String EXTENSION_POINT = EXTENSION_POINT_MODULE + ".b2ApiSample";
 
 	  public static final IFactory<B2ApiSample> Factory = 
 	      ExtensionIFactory.getFactory( B2ApiSample.class, EXTENSION_POINT, true );
 	
-	// Get All Data
-	List<Course> getCourseListForUser(Id userId);
+	// Get All Courses For User
+	public List<Course> getCourseListForUser(Id userId);
 	
-	// Seed Data
-	List<User> getRosterByCourseId(Id courseId);
+	// Get All User For Course
+	public List<User> getRosterByCourseId(Id courseId);
 	
 }
