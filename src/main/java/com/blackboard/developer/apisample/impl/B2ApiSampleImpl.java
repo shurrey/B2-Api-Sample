@@ -1,5 +1,6 @@
 package com.blackboard.developer.apisample.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 
@@ -15,10 +16,9 @@ import com.blackboard.developer.apisample.api.*;
 
 public class B2ApiSampleImpl implements B2ApiSample {
 
-	@SuppressWarnings("null")
 	@Override
 	public List<Course> getCourseListForUser(Id userId) {
-		List<Course> courseList = null;
+		List<Course> courseList = new ArrayList<Course>();
 		
 		try {
 			List<CourseMembership> cmList = CourseMembershipDbLoader.Default.getInstance().loadByUserId(userId);
@@ -40,10 +40,9 @@ public class B2ApiSampleImpl implements B2ApiSample {
 		
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public List<User> getRosterByCourseId(Id courseId) {
-		List<User> roster = null;
+		List<User> roster = new ArrayList<User>();
 		
 		try {
 			List<CourseMembership> cmList = CourseMembershipDbLoader.Default.getInstance().loadByCourseId(courseId);
@@ -51,7 +50,7 @@ public class B2ApiSampleImpl implements B2ApiSample {
 			
 			while (cmIt.hasNext()) {
 				CourseMembership curCm = cmIt.next();
-				User user = UserDbLoader.Default.getInstance().loadById(curCm.getCourseId());
+				User user = UserDbLoader.Default.getInstance().loadUserByCourseMembership(curCm.getId());
 				roster.add(user);
 			}
 			

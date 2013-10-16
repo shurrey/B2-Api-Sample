@@ -20,6 +20,7 @@
 	</bbNG:pageHeader>
 	
 	<%
+	try {
 		Context ctx = ContextManagerFactory.getInstance().getContext();
 		B2ApiSample apiSample = new B2ApiSampleImpl();
 		Course course = ctx.getCourse();
@@ -32,11 +33,23 @@
 		
 		while(rosterIt.hasNext()) {
 			User user = rosterIt.next();
-			String displayUser = "User Name: <" + user.getGivenName() + " " + user.getFamilyName() + 
-					"> Email Address: <" + user.getEmailAddress() + "> Username: <" + user.getUserName() + ">";
+			String fullname = user.getGivenName() + " " + user.getFamilyName();
+			String email = user.getEmailAddress();
+			String username = user.getUserName();
+			String id = user.getId().toExternalString();
+			String buid = user.getBatchUid();
+			
 			%>
-			<%=displayUser%><br />
+			<h2><%=fullname%></h2><br />
+			Email: <%=email%><br />
+			Username: <%=username%><br />
+			User Id: <%=id%><br />
+			BatchUid: <%=buid%><br /><br />
+			
 			<%
 		}
+	} catch (Exception e) {
+		%><%=e.getMessage() %><%
+	}
 	%>
 </bbNG:genericPage>

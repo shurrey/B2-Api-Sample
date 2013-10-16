@@ -93,17 +93,8 @@ public final class getCourseList_jsp extends org.apache.jasper.runtime.HttpJspBa
             return;
 
 	try {
-		
-          out.write("Get Context...");
- 
 		Context ctx = ContextManagerFactory.getInstance().getContext();
-		
-          out.write("Get B2ApiSample...");
-
 		B2ApiSample apiSample = new B2ApiSampleImpl();
-		
-          out.write("Get User From Context...");
-
 		User user = ctx.getUser();
 		
 		
@@ -112,22 +103,22 @@ public final class getCourseList_jsp extends org.apache.jasper.runtime.HttpJspBa
           out.print(user.getFamilyName() );
           out.write("</h2><br />\n\t\t");
 
-		
-          out.write("Get Course List...");
-
 		List<Course> courseListing = apiSample.getCourseListForUser(user.getId());
-		
-          out.write("Get Course List Iterator...");
-
 		ListIterator<Course> courseIt = courseListing.listIterator();
 		
 		while(courseIt.hasNext()) {
 			Course course = courseIt.next();
-			String displayCourse = "Course Name: <" + course.getDisplayTitle() + "> Course Id: <" + course.getCourseId() +
-					"> Course BatchUId: <" + course.getBatchUid() + ">";
+			String title = course.getDisplayTitle();
+			String id = course.getId().toExternalString();
+			String buid = course.getBatchUid();
 			
-          out.print(displayCourse);
-          out.write("<br />\n\t\t\t");
+          out.write("<h2>");
+          out.print(title);
+          out.write("</h2><br />\n\t\t\tUser Id: ");
+          out.print(id);
+          out.write("<br />\n\t\t\tBatchUid: ");
+          out.print(buid);
+          out.write("<br /><br />\n\t\t\t");
 
 		}
 	} catch(Exception e) {

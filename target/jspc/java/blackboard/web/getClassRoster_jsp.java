@@ -92,6 +92,7 @@ public final class getClassRoster_jsp extends org.apache.jasper.runtime.HttpJspB
           if (_jspx_meth_bbNG_005fpageHeader_005f0(_jspx_th_bbNG_005fgenericPage_005f0, _jspx_page_context))
             return;
 
+	try {
 		Context ctx = ContextManagerFactory.getInstance().getContext();
 		B2ApiSample apiSample = new B2ApiSampleImpl();
 		Course course = ctx.getCourse();
@@ -106,13 +107,31 @@ public final class getClassRoster_jsp extends org.apache.jasper.runtime.HttpJspB
 		
 		while(rosterIt.hasNext()) {
 			User user = rosterIt.next();
-			String displayUser = "User Name: <" + user.getGivenName() + " " + user.getFamilyName() + 
-					"> Email Address: <" + user.getEmailAddress() + "> Username: <" + user.getUserName() + ">";
+			String fullname = user.getGivenName() + " " + user.getFamilyName();
+			String email = user.getEmailAddress();
+			String username = user.getUserName();
+			String id = user.getId().toExternalString();
+			String buid = user.getBatchUid();
 			
-          out.print(displayUser);
-          out.write("<br />\n\t\t\t");
+			
+          out.write("<h2>");
+          out.print(fullname);
+          out.write("</h2><br />\n\t\t\tEmail: ");
+          out.print(email);
+          out.write("<br />\n\t\t\tUsername: ");
+          out.print(username);
+          out.write("<br />\n\t\t\tUser Id: ");
+          out.print(id);
+          out.write("<br />\n\t\t\tBatchUid: ");
+          out.print(buid);
+          out.write("<br /><br />\n\t\t\t\n\t\t\t");
 
 		}
+	} catch (Exception e) {
+		
+          out.print(e.getMessage() );
+
+	}
 	
           int evalDoAfterBody = _jspx_th_bbNG_005fgenericPage_005f0.doAfterBody();
           bbContext = (blackboard.platform.context.Context) _jspx_page_context.findAttribute("bbContext");

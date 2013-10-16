@@ -21,27 +21,25 @@
 	
 	<%
 	try {
-		%>Get Context...<% 
 		Context ctx = ContextManagerFactory.getInstance().getContext();
-		%>Get B2ApiSample...<%
 		B2ApiSample apiSample = new B2ApiSampleImpl();
-		%>Get User From Context...<%
 		User user = ctx.getUser();
 		
 		%>
 		<h2>Course List for User <%=user.getGivenName()%> <%=user.getFamilyName() %></h2><br />
 		<%
-		%>Get Course List...<%
 		List<Course> courseListing = apiSample.getCourseListForUser(user.getId());
-		%>Get Course List Iterator...<%
 		ListIterator<Course> courseIt = courseListing.listIterator();
 		
 		while(courseIt.hasNext()) {
 			Course course = courseIt.next();
-			String displayCourse = "Course Name: <" + course.getDisplayTitle() + "> Course Id: <" + course.getCourseId() +
-					"> Course BatchUId: <" + course.getBatchUid() + ">";
+			String title = course.getDisplayTitle();
+			String id = course.getId().toExternalString();
+			String buid = course.getBatchUid();
 			%>
-			<%=displayCourse%><br />
+			<h2><%=title%></h2><br />
+			User Id: <%=id%><br />
+			BatchUid: <%=buid%><br /><br />
 			<%
 		}
 	} catch(Exception e) {
