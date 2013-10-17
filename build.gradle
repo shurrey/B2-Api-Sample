@@ -3,7 +3,6 @@ apply plugin: "war"
 apply plugin: "maven"
 apply plugin: "eclipse"
 apply plugin: "idea"
-apply plugin: "b2"
 
 // Uncomment if your project has an API JAR
 apply from: "api.gradle"
@@ -56,15 +55,15 @@ dependencies {
 }
 
 // Add a task to deploy a B2 using starting block
-//task deployB2( dependsOn: "war" ) << {
-//      ant.taskdef( name: "b2deploy", classname: "org.oscelot.ant.B2DeployTask", classpath: project.configurations.buildUtils.asPath )
-//      ant.b2deploy( localfilepath: project.war.archivePath, host: project.ext.deployServer, courseorgavailable: 'true', clean: 'true', webappName: 'bb-starting-block-' + project.ext.deployInstance )
-//}
+task deployB2( dependsOn: "war" ) << {
+      ant.taskdef( name: "b2deploy", classname: "org.oscelot.ant.B2DeployTask", classpath: project.configurations.buildUtils.asPath )
+      ant.b2deploy( localfilepath: project.war.archivePath, host: project.ext.deployServer, courseorgavailable: 'true', clean: 'true', webappName: 'bb-starting-block-' + project.ext.deployInstance )
+}
 
-//task deployRemote( dependsOn: war ) << {
-//  ant.taskdef(name: 'b2deploy', classpath: 'path/to/b2deploy-task.jar', classname: 'org.oscelot.ant.B2DeployTask' )
-//  ant.b2deploy(localfilepath: project.war.archivePath, host: project.b2DeployTarget, courseorgavailable: 'true', clean: 'true')
-//}
+task deployRemote( dependsOn: war ) << {
+      ant.taskdef( name: "b2deploy", classname: "org.oscelot.ant.B2DeployTask", classpath: project.configurations.buildUtils.asPath )
+      ant.b2deploy( localfilepath: project.war.archivePath, host: project.ext.b2DeployTarget, courseorgavailable: 'true', clean: 'true', webappName: 'bb-starting-block-' + project.ext.b2DeployName )
+}
 
 task wrapper(type: Wrapper) {
   gradleVersion = '1.6'
